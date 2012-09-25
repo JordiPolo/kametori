@@ -17,4 +17,6 @@ Gem::Specification.new do |gem|
   gem.version       = Kametori::VERSION
 
   gem.add_development_dependency("rspec", [">= 2.2.0"])
+  gem.add_development_dependency("timecop")
+  gem.add_development_dependency("debugger")
 end

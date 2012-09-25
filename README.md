@@ -18,7 +18,25 @@ Or install it yourself as:
 
 ## Usage
 
-Kametori.limits = [ { tag: "tag", limit: 1} ]
+The best way to use this gem is adding a profile to your
+cucumber.yml file (usually located in config in Rails projects).
+Like:
+benchmark: --format progress -r features/support/benchmark.rb
+
+And in features/support/benchmark.rb you write:
+
+ Kametori.scenario_limits = [{ tag: "fast_scenario", limit:1 },
+{tag:"slow_scenario", limit:10}]
+   
+ Kametori.raise_errors = true
+
+ Around do |scenario, block|
+   Kametori.scenario_benchmark(scenario) do
+     block.call
+   end
+ end
+
+
 
 
 ## Contributing
